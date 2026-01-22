@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_supplier__pay_terms', function (Blueprint $table) {
+        Schema::create('item_category', function (Blueprint $table) {
             $table->id();
-            $table->string('PayTermName', 100);
-            $table->integer('NoOfDays')->nullable();
+            $table->string('ItemCategory', 500)->nullable();
+            $table->string('Description', 500)->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_supplier__pay_terms');
+        Schema::dropIfExists('item_category');
     }
 };

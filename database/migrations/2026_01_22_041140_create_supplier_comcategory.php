@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_item_category', function (Blueprint $table) {
+        Schema::create('supplier_comcategory', function (Blueprint $table) {
             $table->id();
-            $table->string('ItemCategory', 500)->nullable();
-            $table->string('Description', 500)->nullable();
+            $table->string('ComCatName', 50)->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_item_category');
+        Schema::dropIfExists('supplier_comcategory');
     }
 };

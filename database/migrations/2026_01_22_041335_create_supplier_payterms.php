@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_supplier__com_category', function (Blueprint $table) {
+        Schema::create('supplier_payterms', function (Blueprint $table) {
             $table->id();
-            $table->string('ComCatName', 50)->nullable();
+            $table->string('PayTermName', 100);
+            $table->integer('NoOfDays')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_supplier__com_category');
+        Schema::dropIfExists('supplier_payterms');
     }
 };

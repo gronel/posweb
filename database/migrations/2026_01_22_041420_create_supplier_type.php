@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_supplier__type', function (Blueprint $table) {
+        Schema::create('supplier_type', function (Blueprint $table) {
             $table->id();
             $table->string('SupTypeName', 50)->nullable();
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_supplier__type');
+        Schema::dropIfExists('supplier_type');
     }
 };

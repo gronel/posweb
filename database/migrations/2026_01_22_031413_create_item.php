@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_item', function (Blueprint $table) {
+        Schema::create('item', function (Blueprint $table) {
             $table->id();
-            $table->string('ItemCode', 100)->unique();
-            $table->string('ItemName', 300);
+            $table->string('ItemCode', 100);
+            $table->string('ItemName', 300)->nullable ();
             $table->string('ItemDescription', 200)->nullable();
-            $table->integer('LocationId',)->nullable();
-            $table->integer('ItemCategoryId')->nullable();
-            $table->string('BarndType', 100)->nullable();
+            $table->integer('LocationId');
+            $table->integer('ItemCategoryId');
+            $table->string('BrandType', 100)->nullable();
             $table->string('UOM', 15)->nullable();
             $table->integer('StockLevelQTY',)->nullable();
             $table->integer('StackOH',)->nullable();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_item');
+        Schema::dropIfExists('item');
     }
 };
