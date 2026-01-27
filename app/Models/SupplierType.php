@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sr_Sub extends Model
+class SupplierType extends Model
 {
-    protected $table = 'sr_sub';
+    protected $table = 'supplier_type';
 }

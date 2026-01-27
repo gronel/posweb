@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier_Type extends Model
+class UserRights extends Model
 {
-    protected $table = 'supplier_type';
+    protected $table = 'user_rights';
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier_ComCategory extends Model
+class SupplierComCategory extends Model
 {
     protected $table = 'supplier_comcategory';
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Menu_Master extends Model
+class POSub extends Model
 {
-    protected $table = 'menu_master';
+    protected $table = 'po_sub';
 }

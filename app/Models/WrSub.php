@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Return_Sub extends Model
+class WrSub extends Model
 {
-    protected $table = 'return_sub';
+    protected $table = 'wr_sub';
 }
