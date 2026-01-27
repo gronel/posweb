@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_rights', function (Blueprint $table) {
             $table->id();
-            $table->string('UserId')();
-            $table->string('MenuId')();
+            $table->integer('UserId');
+            $table->integer('MenuId');
             $table->integer('canAdd')->nullable();
             $table->integer('canEdit')->nullable();
             $table->integer('canDelete')->nullable();
