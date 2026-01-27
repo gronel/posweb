@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('delivery_reciept', function (Blueprint $table) {
             $table->id();
+            $table->string('DrCode', 20);
             $table->string('pocode', 20);
             $table->integer('vendor',);
             $table->dateTime('drDate',)->nullable();

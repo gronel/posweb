@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sr', function (Blueprint $table) {
             $table->id();
+            $table->string('SRId', 30);
             $table->string('Customer', 20)->nullable();
             $table->decimal('Cash', 18, 5)->nullable();
             $table->decimal('TotalAmt', 18, 5)->nullable();

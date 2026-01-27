@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pay_out', function (Blueprint $table) {
             $table->id();
+            $table->integer('PayId',);
             $table->string('Purpose', 300)->nullable();
             $table->decimal('Amount', 18, 5)->nullable();
             $table->string('CreatedBy', 20)->nullable();

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('wr', function (Blueprint $table) {
             $table->id();
+            $table->string('wrld', 30);
             $table->string('wrComments', 300)->nullable();
             $table->decimal('wrTotalCost', 18, 5)->nullable();
             $table->string('CreatedBy', 20)->nullable();

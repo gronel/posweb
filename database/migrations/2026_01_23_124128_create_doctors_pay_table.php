@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('doctors_pay', function (Blueprint $table) {
             $table->id();
+            $table ->integer('DoctorId', 30)->nullable();
             $table->string('Patient', 30)->nullable();
             $table->decimal('Payable', 18, 5)->nullable();
             $table->string('remarks', 200)->nullable();

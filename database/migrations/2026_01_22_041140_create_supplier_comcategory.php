@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('supplier_comcategory', function (Blueprint $table) {
             $table->id();
+            $table->integer('ComCatId');
             $table->string('ComCatName', 50)->nullable();
             $table->timestamps();
         });

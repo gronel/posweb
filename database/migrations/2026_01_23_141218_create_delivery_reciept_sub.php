@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('delivery_reciept_sub', function (Blueprint $table) {
             $table->id();
+            $table->string('DrCode', 20);
+            $table->string('ItemCode', 50)->nullable();
             $table->integer('drQty')->nullable();
             $table->decimal('drCost', 18, 5)->nullable();
             $table->decimal('drAmount', 18, 5)->nullable();
