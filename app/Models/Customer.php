@@ -13,22 +13,15 @@ class Customer extends Model
      */
     public function paymentTerms()
     {
-        return $this->hasMany(CustomerPaymentTerm::class, 'CustomerId', 'id');
+        return $this->hasOne(CustomerPaymentTerm::class, 'id', 'termId');
     }
 
-    /**
-     * Get the return orders for this customer.
-     */
-    public function returnOrders()
-    {
-        return $this->hasMany(Returnn::class, 'CustomerId', 'id');
-    }
-
+ 
     /**
      * Get the sale return orders for this customer.
      */
     public function saleReturns()
     {
-        return $this->hasMany(Sr::class, 'CustomerId', 'id');
+        return $this->hasMany(Sr::class, 'customerId', 'id');
     }
 }

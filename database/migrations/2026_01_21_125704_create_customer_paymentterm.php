@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('customer_paymentterm', function (Blueprint $table) {
             $table->id();
-            $table->integer('cusId');
+            $table->integer('termCode');
             $table->string('paymentTermName', 100);
             $table->integer('noOfDays')->nullable();
             $table->timestamp('createdAt')->nullable();
