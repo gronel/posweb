@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('return_sub', function (Blueprint $table) {
             $table->id();
-            $table->string('returnId', 30);
-            $table->integer('ItemId',);
             $table->integer('Qty');
             $table->decimal('UnitPrice', 18, 5)->nullable();
             $table->decimal('Amount', 18, 5)->nullable();

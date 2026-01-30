@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('supplier_payterms', function (Blueprint $table) {
             $table->id();
-            $table->string('PayTermId', 50);
             $table->string('PayTermName', 100);
             $table->integer('NoOfDays')->nullable();
             $table->timestamps();

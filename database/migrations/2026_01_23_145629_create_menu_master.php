@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('menu_master', function (Blueprint $table) {
             $table->id();
-            $table->integer('MenuID',);
             $table->string('MenuText', 30);
             $table->string('ParentMenuID',);
             $table->integer('MenuOrder',);

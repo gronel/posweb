@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('po', function (Blueprint $table) {
             $table->id();
-            $table->string('poCode', 20);
             $table->integer('poVendor',)->nullable();
             $table->dateTime('orderDte',)->nullable();
             $table->dateTime('shippingDte',)->nullable();

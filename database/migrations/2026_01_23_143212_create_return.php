@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('return', function (Blueprint $table) {
             $table->id();
-            $table ->string('returnId', 30);
             $table->dateTime('returnDate',)->nullable();
             $table->string('comments', 300)->nullable();
             $table->string('createdBy', 20)->nullable();
