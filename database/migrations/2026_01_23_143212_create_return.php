@@ -20,7 +20,8 @@ return new class extends Migration
             $table->integer('isPosted',)->nullable();
             $table->decimal('totalAmount', 18, 5)->nullable();
             $table->integer('action')->nullable();
-            $table->timestamps();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

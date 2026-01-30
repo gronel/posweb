@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('sr', function (Blueprint $table) {
             $table->id();
-            $table->string('Customer', 20)->nullable();
-            $table->decimal('Cash', 18, 5)->nullable();
-            $table->decimal('TotalAmt', 18, 5)->nullable();
-            $table->decimal('Change', 18, 5)->nullable();
-            $table->string('CreatedBy', 30)->nullable();
-            $table->dateTime('CreatedDTe',)->nullable();
+            $table->integer('customerId');
+            $table->decimal('cash', 18, 5)->nullable();
+            $table->decimal('totalAmt', 18, 5)->nullable();
+            $table->decimal('change', 18, 5)->nullable();
+            $table->string('createdBy', 30)->nullable();
+            $table->dateTime('createdDte',)->nullable();
             $table->integer('isPosted',)->nullable();
-            $table->integer('PostedId')->nullable();
-            $table->timestamps();
+            $table->integer('postedId')->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

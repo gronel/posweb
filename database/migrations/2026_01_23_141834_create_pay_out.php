@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('pay_out', function (Blueprint $table) {
             $table->id();
-            $table->string('Purpose', 300)->nullable();
-            $table->decimal('Amount', 18, 5)->nullable();
-            $table->string('CreatedBy', 20)->nullable();
-            $table->dateTime('CreatedDTe',)->nullable();
-            $table->string('ModifyBy', 20)->nullable();
-            $table->dateTime('ModifyDTe',)->nullable();
-            $table->timestamps();
+            $table->string('purpose', 300)->nullable();
+            $table->decimal('amount', 18, 5)->nullable();
+            $table->string('createdBy', 20)->nullable();
+            $table->dateTime('createdDte',)->nullable();
+            $table->string('modifyBy', 20)->nullable();
+            $table->dateTime('modifyDte',)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

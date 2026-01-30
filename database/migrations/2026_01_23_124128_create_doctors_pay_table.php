@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('doctors_pay', function (Blueprint $table) {
             $table->id();
-            $table->string('Patient', 30)->nullable();
-            $table->decimal('Payable', 18, 5)->nullable();
+            $table->string('patient', 30)->nullable();
+            $table->decimal('payable', 18, 5)->nullable();
             $table->string('remarks', 200)->nullable();
             $table->string('createdBy', 20)->nullable();
-            $table->dateTime('createdDTe',)->nullable();
+            $table->dateTime('createdDte',)->nullable();
             $table->string('modifyBy', 20)->nullable();
-            $table->dateTime('modifyDTe',)->nullable();
-            $table->timestamps();
+            $table->dateTime('modifyDte',)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

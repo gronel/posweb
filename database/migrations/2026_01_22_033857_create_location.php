@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('location', function (Blueprint $table) {
             $table->id();
-            $table->string('Location', 150)->nullable();
-            $table->string('Description', 300)->nullable();
-            $table->timestamps();
+            $table->string('location', 150);
+            $table->string('description', 300)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('wr_sub', function (Blueprint $table) {
             $table->id();
-            $table->integer('Qty');
-            $table->decimal('Cost', 18, 5)->nullable();
-            $table->decimal('Amount', 18, 5)->nullable();
-            $table->timestamps();
+            $table->integer('wrId');
+            $table->integer('itemId');
+            $table->integer('qty');
+            $table->decimal('cost', 18, 5)->nullable();
+            $table->decimal('amount', 18, 5)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

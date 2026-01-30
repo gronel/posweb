@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('supplier_type', function (Blueprint $table) {
             $table->id();
-            $table->string('SupTypeName', 50)->nullable();
-            $table->timestamps();
+            $table->string('supTypeId', 20)->unique();
+            $table->string('supTypeName', 50)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

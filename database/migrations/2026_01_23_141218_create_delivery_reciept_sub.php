@@ -16,7 +16,8 @@ return new class extends Migration
             $table->integer('drQty')->nullable();
             $table->decimal('drCost', 18, 5)->nullable();
             $table->decimal('drAmount', 18, 5)->nullable();
-            $table->timestamps();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

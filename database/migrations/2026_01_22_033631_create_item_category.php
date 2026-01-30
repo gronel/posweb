@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('item_category', function (Blueprint $table) {
             $table->id();
-            $table->string('ItemCategory', 500)->nullable();
-            $table->string('Description', 500)->nullable();
-            $table->timestamps();
+            $table->string('itemCategory', 500);
+            $table->string('description', 500)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('wrComments', 300)->nullable();
             $table->decimal('wrTotalCost', 18, 5)->nullable();
-            $table->string('CreatedBy', 20)->nullable();
-            $table->dateTime('CreatedDTe',)->nullable();
+            $table->string('createdBy', 20)->nullable();
+            $table->dateTime('createdDte',)->nullable();
             $table->integer('isPosted',)->nullable();
-            $table->timestamps();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

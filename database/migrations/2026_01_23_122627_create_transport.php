@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transport', function (Blueprint $table) {
+        Schema::create( 'transport', callback: function (Blueprint $table) {
             $table->id();
-            $table->string('DeliveryBy', 50)->nullable();
-            $table->timestamps();
+            $table->string('deliveryCode',  length: 2)->unique();
+            $table->string('deliveryBy', length: 50)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

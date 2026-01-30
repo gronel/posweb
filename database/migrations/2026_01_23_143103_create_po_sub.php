@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('po_sub', function (Blueprint $table) {
             $table->id();
+            $table->integer('poId');
+            $table->integer('itemId');
             $table->integer('poQty',)->nullable();
             $table->decimal('poCost', 18, 5)->nullable();
             $table->decimal('poAmount', 18, 5)->nullable();
-            $table->timestamps();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

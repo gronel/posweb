@@ -13,20 +13,21 @@ return new class extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->id();
-            $table->string('ItemCode', 100);
-            $table->string('ItemName', 300)->nullable ();
-            $table->string('ItemDescription', 200)->nullable();
-            $table->integer('LocationId');
-            $table->integer('ItemCategoryId');
-            $table->string('BrandType', 100)->nullable();
-            $table->string('UOM', 15)->nullable();
-            $table->integer('StockLevelQTY',)->nullable();
-            $table->integer('StackOH',)->nullable();
+            $table->string('itemCode', 150)->unique();
+            $table->string('itemName', 50)->nullable ();
+            $table->string('itemDescription', 100)->nullable();
+            $table->integer('locationId');
+            $table->integer('itemCategoryId');
+            $table->string('brandType', 100)->nullable();
+            $table->string('uom', 15)->nullable();
+            $table->integer('stockLevelQty',)->nullable();
+            $table->integer('stackOh',)->nullable();
             $table->integer('isActive',)->nullable();
-            $table->string('ItemImg',)->nullable();
-            $table->decimal('CostPrice', 18, 5)->nullable();
-            $table->decimal('SellingPrice', 18, 5)->nullable();
-            $table->timestamps();
+            $table->string('itemImg',)->nullable();
+            $table->decimal('costPrice', 18, 5)->nullable();
+            $table->decimal('sellingPrice', 18, 5)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

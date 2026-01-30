@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('Email', 50)->nullable();
             $table->string('Website', 50)->nullable();
             $table->string('Logo')->nullable();
-            $table->timestamps();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 

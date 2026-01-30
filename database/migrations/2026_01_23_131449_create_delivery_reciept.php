@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('delivery_reciept', function (Blueprint $table) {
             $table->id();
-            $table->string('pocode', 20);
+            $table->string('poCode', 20);
             $table->integer('vendor',);
             $table->dateTime('drDate',)->nullable();
             $table->string('remarks', 200)->nullable();
             $table->decimal('totalCost', 18, 5)->nullable();
             $table->integer('isPosted',)->nullable();
             $table->string('createdBy', 20)->nullable();
-            $table->dateTime('createdDTe',)->nullable();
-            $table->timestamps();
+            $table->dateTime('createdDte',)->nullable();
+            $table->timestamp('createdAt')->nullable();
+            $table->timestamp('updatedAt')->nullable();
         });
     }
 
