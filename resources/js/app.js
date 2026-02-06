@@ -41,7 +41,7 @@ createInertiaApp({
             .use(plugin)
             .use(pinia)
             .use(Vue3Tour)
-            .use(ZiggyVue, Ziggy)
+            .use(ZiggyVue)
             .mount(el)
     },
     progress:{

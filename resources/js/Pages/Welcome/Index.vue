@@ -23,7 +23,7 @@
                         </li>
                     </ul>
                     <div class="d-flex gap-2">
-                        <Link  :href="route('login')" class="btn btn-outline-light">Sign In</Link>
+                        <Link  href="login" class="btn btn-outline-light">Sign In</Link>
                     </div>
                 </div>
             </div>
