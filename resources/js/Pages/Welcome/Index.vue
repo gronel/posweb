@@ -23,10 +23,8 @@
                         </li>
                     </ul>
                     <div class="d-flex gap-2">
-                        <template>
-                            <Link v-if="canLogin" href="login" class="btn btn-outline-light">Sign In</Link>
-                            <Link v-if="canRegister" href="register" class="btn btn-light">Get Started</Link>
-                        </template>
+                        <Link  href="login" class="btn btn-outline-light">Sign In</Link>
+                        <Link  href="register" class="btn btn-light">Get Started</Link>
                     </div>
                 </div>
             </div>
