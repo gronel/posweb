@@ -1,5 +1,4 @@
 <template>
-    <LayoutAuthenticated>
         <div class="container-fluid">
             <!-- Header -->
             <div class="mb-4">
@@ -108,7 +107,6 @@
                 </div>
             </div>
         </div>
-    </LayoutAuthenticated>
 </template>
 
 <script setup>
