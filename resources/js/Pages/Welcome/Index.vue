@@ -5,7 +5,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="/">
                     <div class="logo-circle me-2"></div>
-                    <span class="fw-bold">Quip</span>
+                    <span class="fw-bold">A-an</span>
                 </a>
                 <div class="d-flex align-items-center w-100">
                     <ul class="navbar-nav mx-auto">
@@ -24,8 +24,8 @@
                     </ul>
                     <div class="d-flex gap-2">
                         <template>
-                            <Link v-if="canLogin" :href="route('login')" class="btn btn-outline-light">Sign In</Link>
-                            <Link v-if="canRegister" :href="route('register')" class="btn btn-light">Get Started</Link>
+                            <Link v-if="canLogin" href="login" class="btn btn-outline-light">Sign In</Link>
+                            <Link v-if="canRegister" href="register" class="btn btn-light">Get Started</Link>
                         </template>
                     </div>
                 </div>
@@ -33,41 +33,14 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="hero-section text-white">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="badge bg-light bg-opacity-25 text-white mb-3 px-3 py-2">
-                            <span class="me-2">⭐</span> We Provide the Best POS System Solutions
-                        </div>
-                        <h1 class="display-3 fw-bold mb-4">Our Advanced POS Software Solutions</h1>
-                        <p class="lead mb-4 opacity-75">Streamline your business operations with our cutting-edge point of sale system. Fast, secure, and reliable.</p>
-                        <div class="d-flex gap-3 mb-4">
-                            <button class="btn btn-light btn-lg px-4">
-                                <span class="me-2">▶</span> Get Started Now
-                            </button>
-                            <button class="btn btn-outline-light btn-lg px-4">
-                                <span class="me-2">▶</span> See Demo
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="hero-image-container">
-                            <div class="pos-terminal-mockup">
-                                <div class="screen"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <Hero/>
 
         <!-- Business Section -->
         <section class="business-section py-5">
             <div class="container">
                 <div class="text-center mb-5">
                     <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">WHY CHOOSE US</span>
-                    <h2 class="display-5 fw-bold">Business With Our Cutting<br>Edge Quip POS Software</h2>
+                    <h2 class="display-5 fw-bold">Business With Our Cutting<br>Edge A-an POS Software</h2>
                 </div>
                 <div class="row g-4">
                     <div class="col-md-6">
@@ -177,7 +150,7 @@
             <div class="container">
                 <div class="text-center mb-5">
                     <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">POWERFUL FEATURES</span>
-                    <h2 class="display-5 fw-bold">Key Features Of Quip POS</h2>
+                    <h2 class="display-5 fw-bold">Key Features Of A-an POS</h2>
                 </div>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
@@ -259,7 +232,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">QUIP POS SYSTEM</span>
+                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 mb-3">A-an POS SYSTEM</span>
                         <h2 class="display-5 fw-bold mb-4">Business with Our All in-One POS System</h2>
                         <div class="row g-4">
                             <div class="col-md-6">
@@ -338,7 +311,7 @@
                                 <div class="avatar bg-primary rounded-circle me-3" style="width: 80px; height: 80px;"></div>
                                 <div>
                                     <div class="text-warning mb-2">★★★★★</div>
-                                    <p class="text-muted mb-3">"The Quip POS system has transformed our business operations. It's user-friendly, fast, and reliable. Customer support is excellent and always ready to help. Highly recommended!"</p>
+                                    <p class="text-muted mb-3">"The A-an POS system has transformed our business operations. It's user-friendly, fast, and reliable. Customer support is excellent and always ready to help. Highly recommended!"</p>
                                     <h6 class="fw-bold mb-0">Sarah Johnson</h6>
                                     <small class="text-muted">Restaurant Owner</small>
                                 </div>
@@ -375,7 +348,7 @@
                     <div class="col-lg-3">
                         <div class="d-flex align-items-center mb-3">
                             <div class="logo-circle me-2"></div>
-                            <span class="fw-bold fs-5">Quip</span>
+                            <span class="fw-bold fs-5">A-an</span>
                         </div>
                         <p class="text-muted small">Modern POS solutions for modern businesses. Built with Laravel, Vue.js, and Inertia.js.</p>
                         <div class="d-flex gap-2 mt-3">
@@ -424,7 +397,7 @@
                 <hr class="my-4 border-secondary">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="text-muted small mb-0">© 2026 Quip POS. All rights reserved.</p>
+                        <p class="text-muted small mb-0">© 2026 A-an POS. All rights reserved.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
                         <a href="#" class="text-muted text-decoration-none small me-3">Privacy Policy</a>
@@ -439,6 +412,7 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import Hero from './components/Hero.vue';
 
 defineProps({
     canLogin: Boolean,
