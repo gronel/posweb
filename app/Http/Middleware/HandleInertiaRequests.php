@@ -23,7 +23,14 @@ class HandleInertiaRequests extends Middleware
      */
     public function version(Request $request): ?string
     {
-        return parent::version($request);
+         $routeName = $request->route()->getName();
+         dd($routeName);
+        if ($routeName == 'preview') {
+            return 'report';
+        }else if ($routeName == 'login' || $routeName=='password.request' || $routeName=='/') {
+            return 'auth';
+        }
+        return $this->rootView;
     }
 
     /**
