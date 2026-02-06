@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CompanyController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome/Index', [
@@ -34,4 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    //company
+   Route::get('/company',[CompanyController::class, 'index'])->name('company.index');
 });
