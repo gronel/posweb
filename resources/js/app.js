@@ -34,6 +34,7 @@ createInertiaApp({
          name === 'Hospital/Print' ||
         //  name === 'Common/PreviewFromReports' ||
          name === 'Outpatient/Print'  ) ?  null : Layout;
+         debugger;
         return page;
     },
     setup({ el, App, props, plugin }) {
