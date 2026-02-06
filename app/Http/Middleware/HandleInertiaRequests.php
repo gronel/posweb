@@ -24,10 +24,9 @@ class HandleInertiaRequests extends Middleware
     public function version(Request $request): ?string
     {
          $routeName = $request->route()->getName();
-      
         if ($routeName == 'preview') {
             return 'report';
-        }else if ($routeName == 'login' || $routeName=='password.request' || $routeName=='/') {
+        }else if ($routeName == 'login' || $routeName=='password.request' || $routeName== null) {
             return 'auth';
         }
         return $this->rootView;
