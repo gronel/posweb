@@ -140,7 +140,7 @@
 </template>
 
 <script setup>
-import { useForm, Link } from '@inertiajs/vue3';
+import { useForm, Link, router } from '@inertiajs/vue3';
 
 defineProps({
     canResetPassword: Boolean,
@@ -154,7 +154,11 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    form.post('login', {
+        onSuccess: () => {
+            debugger;
+            router.visit('dashboard');
+        },
         onFinish: () => form.reset('password'),
     });
 };

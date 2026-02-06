@@ -9,7 +9,7 @@
                 </a>
                 
                 <div class="d-flex align-items-center gap-3">
-                    <span class="text-white">{{ $page.props.auth.user.name }}</span>
+                    <span class="text-white">{{ $page.props.auth?.user?.name }}</span>
                     <button @click="logout" class="btn btn-outline-light btn-sm">
                         Logout
                     </button>
@@ -22,7 +22,7 @@
             <!-- Welcome Section -->
             <div class="row mb-4">
                 <div class="col-12">
-                    <h1 class="h3 mb-2">Welcome back, {{ $page.props.auth.user.name }}! 👋</h1>
+                    <h1 class="h3 mb-2">Welcome back, {{ $page.props.auth?.user?.name }}! 👋</h1>
                     <p class="text-muted">Here's what's happening with your business today.</p>
                 </div>
             </div>
@@ -225,7 +225,13 @@
 </template>
 
 <script setup>
-import { router } from '@inertiajs/vue3';
+import { router, usePage } from '@inertiajs/vue3';
+
+defineProps({
+    auth: Object,
+});
+
+const page = usePage();
 
 const logout = () => {
     router.post(route('logout'));
