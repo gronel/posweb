@@ -4,7 +4,7 @@
             <div class="mb-4">
                 <div class="d-flex align-items-center mb-3">
                     <div>
-                        <h2 class="fw-bold mb-1">Create New Company</h2>
+                        <h2 class="fw-bold mb-1">Create/Update Company</h2>
                         <p class="text-muted mb-0">Add a new company to the system</p>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                             <form @submit.prevent="submit">
                                 <!-- Company Name -->
                                 <div class="mb-3">
-                                    <label for="companyname" class="form-label fw-semibold">Company Name</label>
+                                    <label for="companyname" class="form-label fw-semibold">Company Name <span class="text-danger ms-1">*</span></label>
                                     <input
                                         id="companyname"
                                         v-model="form.companyname"
@@ -35,7 +35,7 @@
 
                                     <!-- Address -->
                                 <div class="mb-3">
-                                    <label for="address" class="form-label fw-semibold">Address</label>
+                                    <label for="address" class="form-label fw-semibold">Address<span class="text-danger ms-1">*</span></label>
                                     <input
                                         id="address"
                                         v-model="form.address"
@@ -51,11 +51,11 @@
 
                                     <!-- Phone -->
                                 <div class="mb-3">
-                                    <label for="phone" class="form-label fw-semibold">Phone</label>
+                                    <label for="phone" class="form-label fw-semibold">Phone<span class="text-danger ms-1">*</span></label>
                                     <input
                                         id="phone"
                                         v-model="form.phone"
-                                        type="number"
+                                        type="tel"
                                         class="form-control form-control-lg"
                                         :class="{ 'is-invalid': form.errors.phone }"
                                         placeholder="Enter company phone number"
@@ -65,25 +65,9 @@
                                     </div>
                                 </div>
 
-                                        <!-- Fax -->
-                                <div class="mb-3">
-                                    <label for="fax" class="form-label fw-semibold">Fax</label>
-                                    <input
-                                        id="fax"
-                                        v-model="form.fax"
-                                        type="text"
-                                        class="form-control form-control-lg"
-                                        :class="{ 'is-invalid': form.errors.fax }"
-                                        placeholder="Enter company fax number"
-                                    >
-                                    <div v-if="form.errors.fax" class="invalid-feedback">
-                                        {{ form.errors.fax }}
-                                    </div>
-                                </div>
-
                                 <!-- Email -->
                                 <div class="mb-3">
-                                    <label for="email" class="form-label fw-semibold">Email Address</label>
+                                    <label for="email" class="form-label fw-semibold">Email Address <span class="text-danger ms-1">*</span></label>
                                     <input
                                         id="email"
                                         v-model="form.email"
@@ -100,8 +84,8 @@
 
                                 <!-- Website -->
                                 <div class="mb-3">
-                                    <label for="website" class="form-label fw-semibold">Website</label>
-                                    <input
+                                    <label for="website" class="form-label fw-semibold">Website<span class="text-muted ms-1">optional</span></label>
+                                    <input  
                                         id="website"
                                         v-model="form.website"
                                         type="text"
@@ -156,15 +140,28 @@
 import { useForm, Link } from '@inertiajs/vue3';
 import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue';
 
-const form = useForm({
-    companyname: '',
+const props = defineProps({
+    company: Object,
+});
 
-    email: '',
+const form = useForm({
+    id: props.company?.id || null,
+    companyname: props.company?.companyname || '',
+    email: props.company?.email || '',
+    address: props.company?.address || '',
+    phone: props.company?.phone || '',
+    fax: props.company?.fax || '',
+    website: props.company?.website || '',
+    logo: props.company?.logo || '',
    
 });
 
 const submit = () => {
-    form.post('/companies');
+    form.post('/company/store', {
+        onSuccess: () => {
+            form.reset();
+        },
+    });
 };
 </script>
 

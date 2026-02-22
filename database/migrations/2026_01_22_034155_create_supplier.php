@@ -13,23 +13,22 @@ return new class extends Migration
     {
         Schema::create('supplier', function (Blueprint $table) {
             $table->id();
-            $table->string('supplierName', 200)->nullable();
+            $table->string('suppliername', 200)->nullable();
             $table->string('address', 200)->nullable();
-            $table->string('telNo', 50)->nullable();
-            $table->string('faxNo', 50)->nullable();
-            $table->string('cellNo', 50)->nullable();
+            $table->string('telno', 50)->nullable();
+            $table->string('faxno', 50)->nullable();
+            $table->string('cellno', 50)->nullable();
             $table->string('website', 50)->nullable();
             $table->string('accreditation', 50)->nullable();
-            $table->integer('supplierType');
-            $table->integer('comCategory');
-            $table->integer('payTerms');
-            $table->string('contactName', 50)->nullable();
+            $table->integer('suppliertype');
+            $table->integer('comcategory');
+            $table->integer('payterms');
+            $table->string('contactname', 50)->nullable();
             $table->string('designation', 50)->nullable();
             $table->string('department', 50)->nullable();
             $table->string('email', 50)->nullable();
             $table->string('remarks', 500)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->timestamps();
         });
     }
 

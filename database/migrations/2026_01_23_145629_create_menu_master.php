@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('menu_master', function (Blueprint $table) {
             $table->id();
-            $table->string('menuText', 30);
-            $table->string('parentMenuId',);
-            $table->integer('menuOrder',);
-            $table->string('formName', 50)->nullable();
-            $table->string('imageName', 20)->nullable();
-            $table->string('createdBy', 50)->nullable();
-            $table->dateTime('createdDte',)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('menutext', 30);
+            $table->string('parentmenuid',);
+            $table->integer('menuorder',);
+            $table->string('formname', 50)->nullable();
+            $table->string('imagename', 20)->nullable();
+            $table->string('createdby', 50)->nullable();
+            $table->dateTime('createddte',)->nullable();
+            $table->timestamps();
         });
     }
 

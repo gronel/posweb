@@ -13,21 +13,20 @@ return new class extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->id();
-            $table->string('itemCode', 150)->unique();
-            $table->string('itemName', 50)->nullable ();
-            $table->string('itemDescription', 100)->nullable();
-            $table->integer('locationId');
-            $table->integer('itemCategoryId');
-            $table->string('brandType', 100)->nullable();
+            $table->string('itemcode', 150)->unique();
+            $table->string('itemname', 50)->nullable ();
+            $table->string('itemdescription', 100)->nullable();
+            $table->integer('locationid');
+            $table->integer('itemcategoryid');
+            $table->string('brandtype', 100)->nullable();
             $table->string('uom', 15)->nullable();
-            $table->integer('stockLevelQty',)->nullable();
-            $table->integer('stackOh',)->nullable();
-            $table->integer('isActive',)->nullable();
-            $table->string('itemImg',)->nullable();
-            $table->decimal('costPrice', 18, 5)->nullable();
-            $table->decimal('sellingPrice', 18, 5)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->integer('stocklevelqty',)->nullable();
+            $table->integer('stackoh',)->nullable();
+            $table->integer('isactive',)->nullable();
+            $table->string('itemimg',)->nullable();
+            $table->decimal('costprice', 18, 5)->nullable();
+            $table->decimal('sellingprice', 18, 5)->nullable();
+            $table->timestamps();
         });
     }
 

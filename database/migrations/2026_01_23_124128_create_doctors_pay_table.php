@@ -16,12 +16,11 @@ return new class extends Migration
             $table->string('patient', 30)->nullable();
             $table->decimal('payable', 18, 5)->nullable();
             $table->string('remarks', 200)->nullable();
-            $table->string('createdBy', 20)->nullable();
-            $table->dateTime('createdDte',)->nullable();
-            $table->string('modifyBy', 20)->nullable();
-            $table->dateTime('modifyDte',)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('createdby', 20)->nullable();
+            $table->dateTime('createddte',)->nullable();
+            $table->string('modifyby', 20)->nullable();
+            $table->dateTime('modifydte',)->nullable();
+            $table->timestamps();
         });
     }
 

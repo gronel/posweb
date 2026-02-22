@@ -27,7 +27,10 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Companies/Create');
+        $company = Companies::first();
+        return Inertia::render('Companies/Create',[
+            'company' => $company
+        ]);
     }
 
     /**
@@ -36,27 +39,30 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'CompanyName' => 'required|string|max:255',
-            'Email' => 'required|string|email|max:255|unique:companies,Email',
-            'Address' => 'nullable|string|max:255',
-            'Phone' => 'nullable|string|max:12',
-            'Fax' => 'nullable|string|max:50',
-            'Website' => 'nullable|string|max:255',
-            'Logo' => 'nullable|string|max:255',
+            'companyname' => 'required|string|max:50',
+            'email' => 'required|string|email|max:50',
+            'address' => 'nullable|string|max:150',
+            'phone' => 'nullable|string|max:50',
+            'fax' => 'nullable|string|max:50',
+            'website' => 'nullable|string|max:50',
+            'logo' => 'nullable|string',
         ]);
 
-        Companies::create([
-            'CompanyName' => $validated['CompanyName'],
-            'Email' => $validated['Email'],
-            'Address' => $validated['Address'] ?? null,
-            'Phone' => $validated['Phone'] ?? null,
-            'Fax' => $validated['Fax'] ?? null,
-            'Website' => $validated['Website'] ?? null,
-            'Logo' => $validated['Logo'] ?? null,
-        ]);
+        Companies::updateOrCreate(
+            ['id' => $request->id ?? null],
+            [
+                'companyname' => $validated['companyname'],
+                'address' => $validated['address'] ?? null,
+                'phone' => $validated['phone'] ?? null,
+                'email' => $validated['email'],
+                'fax' => $validated['fax'] ?? null,
+                'website' => $validated['website'] ?? null,
+                'logo' => $validated['logo'] ?? null,
+            ]
+        );
 
-        return redirect()->route('company.index')
-            ->with('success', 'Company created successfully.');
+        return redirect()->back()
+            ->with('success', 'Company created or updated successfully.');
     }
 
     /**
@@ -85,27 +91,19 @@ class CompanyController extends Controller
     public function update(Request $request, Companies $company)
     {
         $validated = $request->validate([
-            'CompanyName' => 'required|string|max:255',
-            'Email' => 'required|string|email|max:255|unique:companies,Email,' . $company->CompanyID . ',CompanyID',
-            'Address' => 'nullable|string|max:255',
-            'Phone' => 'nullable|string|max:50',
-            'Fax' => 'nullable|string|max:50',
-            'Website' => 'nullable|string|max:255',
-            'Logo' => 'nullable|string|max:255',
+            'companyname' => 'required|string|max:50',
+            'email' => 'required|string|email|max:50|unique:companies,email,' . $company->id . ',id',
+            'address' => 'nullable|string|max:150',
+            'phone' => 'nullable|string|max:50',
+            'fax' => 'nullable|string|max:50',
+            'website' => 'nullable|string|max:50',
+            'logo' => 'nullable|string',
         ]);
 
-        $company->CompanyName = $validated['CompanyName'];
-        $company->Address = $validated['Address'] ?? null;
-        $company->Phone = $validated['Phone'] ?? null;
-        $company->Fax = $validated['Fax'] ?? null;
-        $company->Website = $validated['Website'] ?? null;
-        $company->Logo = $validated['Logo'] ?? null;
-        $company->Email = $validated['Email'];
+        $company->update($validated);
 
-        $company->save();
-
-        return redirect()->route('company.index')
-            ->with('success', 'Company updated successfully.');
+        return redirect()->back()
+            ->with('success', 'Company updated successfully.'); 
     }
 
     /**

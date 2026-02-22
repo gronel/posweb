@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('po', function (Blueprint $table) {
             $table->id();
-            $table->string('poCode', 50)->unique();
-            $table->integer('poVendor',)->nullable();
-            $table->dateTime('orderDte',)->nullable();
-            $table->dateTime('shippingDte',)->nullable();
-            $table->dateTime('closedDte',)->nullable();
-            $table->decimal('totalCost', 18, 5)->nullable();
+            $table->string('pocode', 50)->unique();
+            $table->integer('povendor',)->nullable();
+            $table->dateTime('orderdte',)->nullable();
+            $table->dateTime('shippingdte',)->nullable();
+            $table->dateTime('closeddte',)->nullable();
+            $table->decimal('totalcost', 18, 5)->nullable();
             $table->string('status', 10)->nullable();
-            $table->string('poRefNo', 50)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('porefno', 50)->nullable();
+            $table->timestamps();
         });
     }
 
