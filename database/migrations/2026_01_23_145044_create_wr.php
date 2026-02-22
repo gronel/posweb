@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('wr', function (Blueprint $table) {
             $table->id();
-            $table->string('wrComments', 300)->nullable();
-            $table->decimal('wrTotalCost', 18, 5)->nullable();
-            $table->string('createdBy', 20)->nullable();
-            $table->dateTime('createdDte',)->nullable();
-            $table->integer('isPosted',)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('wrcomments', 300)->nullable();
+            $table->decimal('wrtotalcost', 18, 5)->nullable();
+            $table->string('createdby', 20)->nullable();
+            $table->dateTime('createddte',)->nullable();
+            $table->integer('isposted',)->nullable();
+            $table->timestamps();
         });
     }
 

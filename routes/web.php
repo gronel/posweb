@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CompanyController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome/Index', [
@@ -24,4 +26,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
     
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    
+    // User Management
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    //company
+    Route::prefix('company')->group(function () {
+        Route::get('/',[CompanyController::class, 'create'])->name('company.create');
+        Route::post('/store',[CompanyController::class, 'store'])->name('company.store');
+        Route::get('/{company}',[CompanyController::class, 'show'])->name('company.show');
+        Route::get('/{company}/edit',[CompanyController::class, 'edit'])->name('company.edit');
+        Route::put('/{company}',[CompanyController::class, 'update'])->name('company.update');
+        Route::delete('/company/{company}',[CompanyController::class, 'destroy'])->name('company.destroy');
+    });
 });

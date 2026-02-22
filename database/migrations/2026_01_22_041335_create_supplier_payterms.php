@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('supplier_payterms', function (Blueprint $table) {
             $table->id();
-            $table->string('payTermsCode', 20)->unique();
-            $table->string('payTermName', 100);
-            $table->integer('noOfDays')->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('paytermscode', 20)->unique();
+            $table->string('paytermname', 100);
+            $table->integer('noofdays')->nullable();
+            $table->timestamp('createdat')->nullable();
+            $table->timestamp('updatedat')->nullable();
         });
     }
 

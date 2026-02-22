@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('supplier_comcategory', function (Blueprint $table) {
             $table->id();
             $table->string('code',3)->unique();
-            $table->string('comCatName', 50);
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('comcatname', 50);
+            $table->timestamps();
         });
     }
 

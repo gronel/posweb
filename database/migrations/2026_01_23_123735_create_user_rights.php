@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('user_rights', function (Blueprint $table) {
             $table->id();
-            $table->integer('userId');
-            $table->integer('menuId');
-            $table->integer('canAdd')->nullable();
-            $table->integer('canEdit')->nullable();
-            $table->integer('canDelete')->nullable();
-            $table->integer('canPreview')->nullable();
-            $table->integer('canPrint')->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->integer('userid');
+            $table->integer('menuid');
+            $table->integer('canadd')->nullable();
+            $table->integer('canedit')->nullable();
+            $table->integer('candelete')->nullable();
+            $table->integer('canpreview')->nullable();
+            $table->integer('canprint')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create( 'transport', callback: function (Blueprint $table) {
             $table->id();
-            $table->string('deliveryCode',  length: 2)->unique();
-            $table->string('deliveryBy', length: 50)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('deliverycode',  length: 2)->unique();
+            $table->string('deliveryby', length: 50)->nullable();
+            $table->timestamps();
         });
     }
 

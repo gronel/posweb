@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id('CompanyID');
-            $table->string('CompanyName', 50);
-            $table->string('Address', 150)->nullable();
-            $table->string('Phone', 50)->nullable();
-            $table->string('Fax', 50)->nullable();
-            $table->string('Email', 50)->nullable();
-            $table->string('Website', 50)->nullable();
-            $table->string('Logo')->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->id();
+            $table->string('companyname', 50);
+            $table->string('address', 150)->nullable();
+            $table->string('phone', 50)->nullable();
+            $table->string('fax', 50)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->string('website', 50)->nullable();
+            $table->string('logo')->nullable();
+            $table->timestamps();
         });
     }
 

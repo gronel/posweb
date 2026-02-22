@@ -26,14 +26,7 @@ createInertiaApp({
     title: (title) => `${appName}™ - ${title}`,
     resolve: async (name) => {
         const page = await resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob("./Pages/**/*.vue"));
-        page.default.layout =  (name.includes('Auth/') ||
-         name === 'Welcome' ||
-         name === 'Error' ||
-         name === 'Batch/Print' ||
-         name === 'Donor/Print' ||
-         name === 'Hospital/Print' ||
-        //  name === 'Common/PreviewFromReports' ||
-         name === 'Outpatient/Print'  ) ?  null : Layout;
+        page.default.layout =  (name.includes('Auth/') ) ?  null : Layout;
         return page;
     },
     setup({ el, App, props, plugin }) {

@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('supplier_type', function (Blueprint $table) {
             $table->id();
-            $table->string('supTypeId', 20)->unique();
-            $table->string('supTypeName', 50)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->string('suptypeid', 20)->unique();
+            $table->string('suptypename', 50)->nullable();
+            $table->timestamps();
         });
     }
 

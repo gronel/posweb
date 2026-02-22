@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('delivery_reciept_sub', function (Blueprint $table) {
             $table->id();
-            $table->integer('drQty')->nullable();
-            $table->decimal('drCost', 18, 5)->nullable();
-            $table->decimal('drAmount', 18, 5)->nullable();
-            $table->timestamp('createdAt')->nullable();
-            $table->timestamp('updatedAt')->nullable();
+            $table->integer('drqty')->nullable();
+            $table->decimal('drcost', 18, 5)->nullable();
+            $table->decimal('dramount', 18, 5)->nullable();
+            $table->timestamps();
         });
     }
 
