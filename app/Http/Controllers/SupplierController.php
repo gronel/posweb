@@ -28,11 +28,8 @@ class SupplierController extends Controller
     public function store(SupplierPostRequest $request)
     {
         $validated = $request->validated();
-
-        dd($request->all());
-
             Supplier::updateOrCreate(   
-            ['id' => $validated->id ?? null],
+            ['id' => $validated['id'] ?? null],
             [
                 'suppliername' => $validated['suppliername'],
                 'address' => $validated['address'] ?? null,

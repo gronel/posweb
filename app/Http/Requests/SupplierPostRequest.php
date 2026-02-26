@@ -22,6 +22,7 @@ class SupplierPostRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'nullable|integer|exists:supplier,id',
             'suppliername' => 'required|string|max:200',
             'email' => 'required|string|email|max:50',
             'address' => 'nullable|string|max:200',

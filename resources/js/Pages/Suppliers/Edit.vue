@@ -264,6 +264,7 @@ const props =defineProps({
 });
 
 const form = useForm(props.supplier ? {
+  id: props.supplier.id || null,  
   suppliername: props.supplier.suppliername || '',
   email: props.supplier.email || '',
   address: props.supplier.address || '',
@@ -278,6 +279,7 @@ const form = useForm(props.supplier ? {
   department: props.supplier.department || '',
   remarks: props.supplier.remarks || '',
 } : {
+  id: null,
   suppliername: '',
   email: '',
   address: '',
