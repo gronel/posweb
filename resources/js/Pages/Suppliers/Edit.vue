@@ -10,8 +10,8 @@
           Back
         </Link>
         <div>
-          <h2 class="fw-bold mb-1">Edit Supplier</h2>
-          <p class="text-muted mb-0">Update supplier information</p>
+          <h2 class="fw-bold mb-1">{{ props.title }} Supplier</h2>
+          <p class="text-muted mb-0">{{ props.title }} supplier details</p>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
                 </div>
               </div>
 
-              <!-- Cell and Website Row -->
+              <!-- Cell Row -->
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="cellno" class="form-label fw-semibold">Cell No</label>
@@ -241,7 +241,7 @@
                   :disabled="form.processing"
                 >
                   <span v-if="form.processing" class="spinner-border spinner-border-sm me-2"></span>
-                  {{ form.processing ? 'Updating...' : 'Update Supplier' }}
+                  {{ form.processing ? 'Creating...' : 'Create Supplier' }}
                 </button>
                 <Link href="/supplier" class="btn btn-outline-secondary btn-lg">
                   Cancel
@@ -257,30 +257,44 @@
 
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3';
-import LayoutAuthenticated from '@/Layouts/LayoutAuthenticated.vue';
 
-const props = defineProps({
+const props =defineProps({
+  title: String,
   supplier: Object,
 });
 
-const form = useForm({
-  suppliername: props.supplier.suppliername,
-  address: props.supplier.address,
-  telno: props.supplier.telno,
-  cellno: props.supplier.cellno,
-  accreditation: props.supplier.accreditation,
-  suppliertype: props.supplier.suppliertype,
-  comcategory: props.supplier.comcategory,
-  payterms: props.supplier.payterms,
-  contactname: props.supplier.contactname,
-  designation: props.supplier.designation,
-  department: props.supplier.department,
-  email: props.supplier.email,
-  remarks: props.supplier.remarks,
-});
+const form = useForm(props.supplier ? {
+  suppliername: props.supplier.suppliername || '',
+  email: props.supplier.email || '',
+  address: props.supplier.address || '',
+  telno: props.supplier.telno || '',
+  cellno: props.supplier.cellno || '',
+  accreditation: props.supplier.accreditation || '',
+  suppliertype: props.supplier.suppliertype || '',
+  comcategory: props.supplier.comcategory || '',
+  payterms: props.supplier.payterms || '',
+  contactname: props.supplier.contactname || '',
+  designation: props.supplier.designation || '',
+  department: props.supplier.department || '',
+  remarks: props.supplier.remarks || '',
+} : {
+  suppliername: '',
+  email: '',
+  address: '',
+  telno: '',
+  cellno: '',
+  accreditation: '',
+  suppliertype: '',
+  comcategory: '',
+  payterms: '',
+  contactname: '',
+  designation: '',
+  department: '',
+  remarks: '',
+} );
 
 const submit = () => {
-  form.put(`/supplier/${props.supplier.id}`);
+  form.post('/supplier/store');
 };
 </script>
 

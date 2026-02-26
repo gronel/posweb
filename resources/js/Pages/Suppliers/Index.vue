@@ -29,36 +29,20 @@
               <tr>
                 <th class="px-4 py-3">ID</th>
                 <th class="py-3">Supplier Name</th>
+                <th class="py-3">Contact Person</th>
                 <th class="py-3">Address</th>
-                <th class="py-3">telno</th>
-                <th class="py-3">Cellno</th>
-                <th class="py-3">Accreditation</th>
-                <th class="py-3">Supplier Type</th>
-                <th class="py-3">ComCategory</th>
-                <th class="py-3">Pay Terms</th>
-                <th class="py-3">Contact Name</th>
-                <th class="py-3">Designation</th>
-                <th class="py-3">Department</th>
+                <th class="py-3">Cell#</th>
                 <th class="py-3">Email</th>
-                <th class="py-3 text-end pe-4">Remarks</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="supplier in suppliers.data" :key="supplier.id">
                 <td class="px-4 py-3 fw-semibold">{{ supplier.id }}</td>
                 <td class="py-3">{{ supplier.suppliername }}</td>
-                <td class="py-3">{{ supplier.email }}</td>
-                <td class="py-3">{{ supplier.telno }}</td>
+                <td class="py-3">{{ supplier.contactperson }}</td>
+                <td class="py-3">{{ supplier.address }}</td>
                 <td class="py-3">{{ supplier.cellno }}</td>
-                <td class="py-3">{{ supplier.accreditation }}</td>
-                <td class="py-3">{{ supplier.suppliertype }}</td>
-                <td class="py-3">{{ supplier.comcategory }}</td>
-                <td class="py-3">{{ supplier.payterms }}</td> 
-                <td class="py-3">{{ supplier.contactname }}</td>
-                <td class="py-3">{{ supplier.designation }}</td>
-                <td class="py-3">{{ supplier.department }}</td>
                 <td class="py-3">{{ supplier.email }}</td>
-                <td class="py-3">{{ supplier.remarks }}</td>
                 <td class="py-3 text-end pe-4">
                   <div class="btn-group">
                     <Link :href="`/supplier/${supplier.id}/edit`" class="btn btn-sm btn-outline-primary">

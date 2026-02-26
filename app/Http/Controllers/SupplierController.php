@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SupplierPostRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Supplier;
@@ -21,28 +22,34 @@ class SupplierController extends Controller
 
     public function create()
     {
-        return Inertia::render('Suppliers/Create');
+        return Inertia::render('Suppliers/Edit', ['title' => 'Create']);
     }
 
-    public function store(Request $request)
+    public function store(SupplierPostRequest $request)
     {
-        $validated = $request->validate([
-            'suppliername' => 'required|string|max:200|unique:supplier',
-            'email' => 'required|string|email|max:50|unique:supplier',
-            'address' => 'nullable|string|max:200',
-            'telno' => 'nullable|integer|min:5',
-            'cellno' => 'nullable|integer|min:12',
-            'accreditation' => 'nullable|string|max:50',
-            'suppliertype' => 'required|integer',
-            'comcategory' => 'required|integer',
-            'payterms' => 'required|integer',
-            'contactname' => 'required|string|max:50',
-            'designation' => 'nullable|string|max:50',
-            'department' => 'nullable|string|max:50',
-            'remarks' => 'nullable|string|max:500',
-        ]);
+        $validated = $request->validated();
 
-        Supplier::create($validated);
+        dd($request->all());
+
+            Supplier::updateOrCreate(   
+            ['id' => $validated->id ?? null],
+            [
+                'suppliername' => $validated['suppliername'],
+                'address' => $validated['address'] ?? null,
+                'telno' => $validated['telno'] ?? null,
+                'cellno' => $validated['cellno'],
+                'accreditation' => $validated['accreditation'] ?? null,
+                'suppliertype' => $validated['suppliertype'],
+                'comcategory' => $validated['comcategory'],
+                'payterms' => $validated['payterms'],
+                'contactname' => $validated['contactname'],
+                'designation' => $validated['designation'] ?? null,
+                'department' => $validated['department'] ?? null,
+                'email' => $validated['email'],
+                'remarks' => $validated['remarks'] ?? null,
+            ]
+        );
+       
 
         return redirect()->route('supplier.index')
             ->with('success', 'Supplier created.');
@@ -50,37 +57,16 @@ class SupplierController extends Controller
 
     public function show(Supplier $supplier)
     {
-        return Inertia::render('Suppliers/Show', ['supplier' => $supplier]);
+        return Inertia::render('Suppliers/Edit', ['supplier' => $supplier, 'title' => 'Create']);
     }
 
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        return Inertia::render('Suppliers/Edit', ['supplier' => $supplier]);
+        $supplier = Supplier::findOrFail($id);
+        return Inertia::render('Suppliers/Edit', ['supplier' => $supplier, 'title' => 'Edit']);
     }
 
-    public function update(Request $request, Supplier $supplier)
-    {
-        $validated = $request->validate([
-            'suppliername' => 'nullable|string|max:200|unique:supplier,suppliername,' . $supplier->id,
-            'email' => 'nullable|string|email|max:50|unique:supplier,email,' . $supplier->id,
-            'address' => 'nullable|string|max:200',
-            'telno' => 'nullable|integer|max:15|min:5',
-            'cellno' => 'nullable|integer|max:12',
-            'accreditation' => 'nullable|string|max:50',
-            'suppliertype' => 'nullable|integer',
-            'comcategory' => 'nullable|integer',
-            'payterms' => 'nullable|integer',
-            'contactname' => 'nullable|string|max:50',
-            'designation' => 'nullable|string|max:50',
-            'department' => 'nullable|string|max:50',
-            'remarks' => 'nullable|string|max:500',
-        ]);
-
-        $supplier->update($validated);
-
-        return redirect()->route('supplier.index')
-            ->with('success', 'Supplier updated.');
-    }
+    
 
     public function destroy(Supplier $supplier)
     {
