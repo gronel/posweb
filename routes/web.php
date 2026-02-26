@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SupplierController;
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome/Index', [
@@ -44,5 +46,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{company}/edit',[CompanyController::class, 'edit'])->name('company.edit');
         Route::put('/{company}',[CompanyController::class, 'update'])->name('company.update');
         Route::delete('/company/{company}',[CompanyController::class, 'destroy'])->name('company.destroy');
+    });
+
+    Route::prefix('supplier')->group(function () {
+        Route::get('/', [SupplierController::class, 'index'])->name('supplier.index');
+        Route::get('/create', [SupplierController::class, 'create'])->name('supplier.create');
+        Route::post('/', [SupplierController::class, 'store'])->name('supplier.store');
+        Route::get('/{supplier}', [SupplierController::class, 'show'])->name('supplier.show');
+        Route::get('/{supplier}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
+        Route::put('/{supplier}', [SupplierController::class, 'update'])->name('supplier.update');
+        Route::delete('/{supplier}', [SupplierController::class, 'destroy'])->name('supplier.destroy');
     });
 });
