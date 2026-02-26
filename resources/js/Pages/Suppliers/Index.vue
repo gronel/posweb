@@ -39,7 +39,7 @@
               <tr v-for="supplier in suppliers.data" :key="supplier.id">
                 <td class="px-4 py-3 fw-semibold">{{ supplier.id }}</td>
                 <td class="py-3">{{ supplier.suppliername }}</td>
-                <td class="py-3">{{ supplier.contactperson }}</td>
+                <td class="py-3">{{ supplier.contactname }}</td>
                 <td class="py-3">{{ supplier.address }}</td>
                 <td class="py-3">{{ supplier.cellno }}</td>
                 <td class="py-3">{{ supplier.email }}</td>
