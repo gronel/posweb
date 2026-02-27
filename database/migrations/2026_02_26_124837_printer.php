@@ -11,7 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('printer', function (Blueprint $table) {
+            $table->id();
+            $table->string('printerName', 50);
+            $table->string('printerType', 50);
+            $table->string('printerOrder', 100);
+            $table->string('printerPrintServer', 50);
+            $table->string('printerPrintPort', 100);
+            $table->string('printerAccessType', 100);
+            $table->string('printerUsername', 100);
+            $table->string('printerPassword', 100);
+            $table->string('printerShellExec', 100);
+            $table->string('printerActive', 100);
+            $table->string('printerUnit', 100);
+            $table->string('printerLabels', 100);
+            $table->string('printerDensity', 100);
+            $table->string('printerDpi', 100);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('printer');
     }
 };
