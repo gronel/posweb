@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\PrinterController;
 
 
 Route::get('/', function () {
@@ -54,5 +55,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/store', [SupplierController::class, 'store'])->name('supplier.store');
         Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
         Route::delete('/{supplier}', [SupplierController::class, 'destroy'])->name('supplier.destroy');
+    });
+
+    // printer management routes
+    Route::prefix('printer')->group(function () {
+        Route::get('/', [PrinterController::class, 'index'])->name('printer.index');
+        Route::get('/create', [PrinterController::class, 'create'])->name('printer.create');
+        Route::post('/store', [PrinterController::class, 'store'])->name('printer.store');
+        Route::get('/{id}/edit', [PrinterController::class, 'edit'])->name('printer.edit');
+        Route::delete('/{printer}', [PrinterController::class, 'destroy'])->name('printer.destroy');
     });
 });
