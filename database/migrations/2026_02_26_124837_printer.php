@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('printerName', 50);
             $table->string('printerType', 50);
-            $table->decimal('printerOrder', 100);
+            $table->decimal('printerOrder', 10, 2);
             $table->string('printerPrintServer', 50);
             $table->string('printerPrintPort', 100);
             $table->string('printerAccessType', 100);

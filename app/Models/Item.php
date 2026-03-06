@@ -8,12 +8,28 @@ class Item extends Model
 {
     protected $table = 'item';
 
+    protected $fillable = [
+        'itemcode',
+        'itemname',
+        'itemdescription',
+        'locationid',
+        'itemcategoryid',
+        'brandtype',
+        'uom',
+        'stocklevelqty',
+        'stackoh',
+        'isactive',
+        'itemimg',
+        'costprice',
+        'sellingprice',
+    ];
+
     /**
      * Get the category that owns this item.
      */
     public function category()
     {
-        return $this->belongsTo(ItemCategory::class, 'ItemCategoryId', 'ItemCategoryId');
+        return $this->belongsTo(ItemCategory::class, 'itemcategoryid', 'id');
     }
 
     /**
@@ -21,6 +37,6 @@ class Item extends Model
      */
     public function location()
     {
-        return $this->belongsTo(Location::class, 'LocationId', 'id');
+        return $this->belongsTo(Location::class, 'locationid', 'id');
     }
 }

@@ -2,24 +2,11 @@
   <div class="container-fluid">
     <!-- Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <div class="d-flex align-items-center">
-        <!-- action dropdown + view toggle -->
-        <div class="btn-group me-3">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Action
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Export</a></li>
-            <li><a class="dropdown-item" href="#">Print</a></li>
-          </ul>
-        </div>
-        <button class="btn btn-secondary" title="Toggle view">
-          <!-- simple list icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5z"/>
-          </svg>
-        </button>
+        <div>
+        <h2 class="fw-bold mb-1">Printer Management</h2>
+        <p class="text-muted mb-0">Manage all printers</p>
       </div>
+  
       <Link href="/printer/create" class="btn btn-primary">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>

@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\PrinterController;
+use App\Http\Controllers\ItemController;
 
 
 Route::get('/', function () {
@@ -64,5 +65,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/store', [PrinterController::class, 'store'])->name('printer.store');
         Route::get('/{id}/edit', [PrinterController::class, 'edit'])->name('printer.edit');
         Route::delete('/{printer}', [PrinterController::class, 'destroy'])->name('printer.destroy');
+    });
+
+    // item management routes
+    Route::prefix('item')->group(function () {
+        Route::get('/', [ItemController::class, 'index'])->name('item.index');
+        Route::get('/create', [ItemController::class, 'create'])->name('item.create');
+        Route::post('/store', [ItemController::class, 'store'])->name('item.store');
+        Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('item.edit');
+        Route::delete('/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
     });
 });
