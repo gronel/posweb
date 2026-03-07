@@ -24,7 +24,7 @@ class PrinterPostRequest extends FormRequest
         return [
             'id' => 'nullable|integer|exists:printer,id',
             'printerName' => 'required|string|max:50',
-            'printerType' => 'required|string|max:50',
+            'printerAccessType' => 'nullable|string|max:50',
             'printerOrder' => 'nullable|integer|min:2',
             'printerPrintServer' => 'nullable|string|max:50',
             'printerPrintPort' => 'nullable|string|max:100',

@@ -61,11 +61,10 @@ class PrinterController extends Controller
             ['id' => $validated['id'] ?? null],
             [
                 'printerName' => $validated['printerName'],
-                'printerType' => $validated['printerType'],
+                'printerAccessType' => $validated['printerAccessType'],
                 'printerOrder' => $validated['printerOrder'] ?? null,
                 'printerPrintServer' => $validated['printerPrintServer'] ?? null,
                 'printerPrintPort' => $validated['printerPrintPort'] ?? null,
-                'printerAccessType' => $validated['printerAccessType'] ?? null,
                 'printerUsername' => $validated['printerUsername'] ?? null,
                 'printerPassword' => $validated['printerPassword'] ?? null,
                 'printerShellExec' => $validated['printerShellExec'] ?? null,

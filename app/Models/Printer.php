@@ -10,7 +10,6 @@ class Printer extends Model
 
     protected $fillable = [
         'printerName',
-        'printerType',
         'printerOrder',
         'printerPrintServer',
         'printerPrintPort',

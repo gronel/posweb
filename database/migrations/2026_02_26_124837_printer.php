@@ -14,19 +14,18 @@ return new class extends Migration
         Schema::create('printer', function (Blueprint $table) {
             $table->id();
             $table->string('printerName', 50);
-            $table->string('printerType', 50);
-            $table->decimal('printerOrder', 10, 2);
-            $table->string('printerPrintServer', 50);
-            $table->string('printerPrintPort', 100);
-            $table->string('printerAccessType', 100);
-            $table->string('printerUsername', 100);
-            $table->string('printerPassword', 100);
-            $table->string('printerShellExec', 100);
-            $table->string('printerActive', 100);
-            $table->string('printerUnit', 100);
-            $table->string('printerLabels', 100);
-            $table->string('printerDensity', 100);
-            $table->string('printerDpi', 100);
+            $table->decimal('printerOrder', 10, 2)->default(0)->nullable();
+            $table->string('printerPrintServer', 50)->nullable();
+            $table->string('printerPrintPort', 100)->nullable();
+            $table->string('printerAccessType', 100)->nullable();
+            $table->string('printerUsername', 100)->nullable();
+            $table->string('printerPassword', 100)->nullable();
+            $table->string('printerShellExec', 100)->nullable();
+            $table->string('printerActive', 100)->nullable();
+            $table->string('printerUnit', 100)->nullable();
+            $table->string('printerLabels', 100)->nullable();
+            $table->string('printerDensity', 100)->nullable();
+            $table->string('printerDpi', 100)->nullable();
             $table->timestamps();
         });
     }
