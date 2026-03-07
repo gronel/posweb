@@ -103,4 +103,10 @@ class PrinterController extends Controller
         return redirect()->route('printer.index')
             ->with('success', 'Printer deleted.');
     }
+
+    public function getPrinters()
+    {
+        $printers = Printer::latest()->paginate(10);
+        return response()->json($printers);
+    }
 }

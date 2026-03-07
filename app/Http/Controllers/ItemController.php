@@ -65,4 +65,10 @@ class ItemController extends Controller
         return redirect()->route('item.index')
             ->with('success', 'Item deleted.');
     }
+
+    public function getItems()
+    {
+        $items = Item::with(['category', 'location'])->latest()->paginate(10);
+        return response()->json($items);
+    }
 }
