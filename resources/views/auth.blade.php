@@ -12,7 +12,8 @@
 
         <!-- Scripts -->
         @routes
-        @vite(['resources/css/app.css', 'resources/js/auth.js'])
+        @viteReactRefresh
+        @vite(['resources/css/app.css', 'resources/js/auth.jsx'])
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
