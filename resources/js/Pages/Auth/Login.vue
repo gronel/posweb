@@ -8,7 +8,7 @@
                         <div class="mb-5">
                             <div class="d-flex align-items-center mb-4">
                                 <div class="logo-circle me-3"></div>
-                                <span class="fw-bold fs-1">A-an</span>
+                                <span class="fw-bold fs-1">Pops POS</span>
                             </div>
                             <h2 class="display-5 fw-bold mb-3">Welcome Back!</h2>
                             <p class="lead opacity-75">Sign in to access your POS dashboard and manage your business operations.</p>
