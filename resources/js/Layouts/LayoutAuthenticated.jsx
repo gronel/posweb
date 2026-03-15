@@ -10,8 +10,14 @@ export default function LayoutAuthenticated({ children }) {
         admin: true,
     });
 
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
     const toggleSection = (section) => {
         setSections((prev) => ({ ...prev, [section]: !prev[section] }));
+    };
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen((prev) => !prev);
     };
 
     const logout = () => {
@@ -23,8 +29,34 @@ export default function LayoutAuthenticated({ children }) {
 
     return (
         <div className="flex min-h-screen bg-gray-100">
+            {/* Mobile Top Bar */}
+            <header className="md:hidden fixed inset-x-0 top-0 z-40 bg-white shadow-sm">
+                <div className="flex items-center justify-between px-4 py-3">
+                    <div className="flex items-center gap-3">
+                        <button
+                            type="button"
+                            onClick={toggleMobileMenu}
+                            className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200"
+                            aria-label="Toggle menu"
+                        >
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M1.5 12.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </button>
+                        <div>
+                            <h1 className="text-lg font-semibold text-blue-600">A-AN POS</h1>
+                            <p className="text-xs text-slate-500">Management System</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
             {/* Sidebar */}
-            <aside className="w-70 bg-white shadow-[2px_0_10px_rgba(0,0,0,0.05)] flex flex-col fixed h-screen overflow-y-auto" style={{width:'280px'}}>
+            <aside
+                className={`fixed inset-y-0 left-0 z-50 w-[280px] bg-white shadow-[2px_0_10px_rgba(0,0,0,0.05)] flex flex-col overflow-y-auto transition-transform duration-300 ${
+                    mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                } md:translate-x-0`}
+            >
                 {/* Header */}
                 <div className="px-6 py-8 text-center border-b border-gray-200">
                     <div className="w-15 h-15 bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-full mx-auto mb-2" style={{width:'60px',height:'60px'}}></div>
@@ -154,8 +186,11 @@ export default function LayoutAuthenticated({ children }) {
                 </div>
             </aside>
 
+            {/* Mobile overlay */}
+            {mobileMenuOpen && <div className="fixed inset-0 z-40 bg-black/40 md:hidden" onClick={toggleMobileMenu} />}
+
             {/* Main Content Area */}
-            <main className="flex-1 ml-[280px] p-8">
+            <main className="flex-1 md:ml-[280px] pt-16 md:pt-0 p-4 md:p-8">
                 {children}
             </main>
         </div>
