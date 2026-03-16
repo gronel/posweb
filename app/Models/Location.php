@@ -8,11 +8,16 @@ class Location extends Model
 {
     protected $table = 'location';
 
+    protected $fillable = [
+        'location',
+        'description',
+    ];
+
     /**
      * Get the items for this location.
      */
     public function items()
     {
-        return $this->hasMany(Item::class, 'LocationId', 'id');
+        return $this->hasMany(Item::class, 'locationid', 'id');
     }
 }
