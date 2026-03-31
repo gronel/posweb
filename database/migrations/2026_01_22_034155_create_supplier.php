@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('suppliername', 200)->nullable();
             $table->string('address', 200)->nullable();
-            $table->string('telno', 50)->nullable();
-            $table->string('faxno', 50)->nullable();
-            $table->string('cellno', 50)->nullable();
-            $table->string('website', 50)->nullable();
+            $table->string('telno', 20)->nullable();
+            $table->string('cellno', 12)->nullable();
             $table->string('accreditation', 50)->nullable();
             $table->integer('suppliertype');
             $table->integer('comcategory');

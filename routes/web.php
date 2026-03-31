@@ -5,6 +5,10 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\PrinterController;
+use App\Http\Controllers\ItemController;
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome/Index', [
@@ -44,5 +48,31 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{company}/edit',[CompanyController::class, 'edit'])->name('company.edit');
         Route::put('/{company}',[CompanyController::class, 'update'])->name('company.update');
         Route::delete('/company/{company}',[CompanyController::class, 'destroy'])->name('company.destroy');
+    });
+
+    Route::prefix('supplier')->group(function () {
+        Route::get('/', [SupplierController::class, 'index'])->name('supplier.index');
+        Route::get('/create', [SupplierController::class, 'create'])->name('supplier.create');
+        Route::post('/store', [SupplierController::class, 'store'])->name('supplier.store');
+        Route::get('/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
+        Route::delete('/{supplier}', [SupplierController::class, 'destroy'])->name('supplier.destroy');
+    });
+
+    // printer management routes
+    Route::prefix('printer')->group(function () {
+        Route::get('/', [PrinterController::class, 'index'])->name('printer.index');
+        Route::get('/create', [PrinterController::class, 'create'])->name('printer.create');
+        Route::post('/store', [PrinterController::class, 'store'])->name('printer.store');
+        Route::get('/{id}/edit', [PrinterController::class, 'edit'])->name('printer.edit');
+        Route::delete('/{printer}', [PrinterController::class, 'destroy'])->name('printer.destroy');
+    });
+
+    // item management routes
+    Route::prefix('item')->group(function () {
+        Route::get('/', [ItemController::class, 'index'])->name('item.index');
+        Route::get('/create', [ItemController::class, 'create'])->name('item.create');
+        Route::post('/store', [ItemController::class, 'store'])->name('item.store');
+        Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('item.edit');
+        Route::delete('/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
     });
 });
