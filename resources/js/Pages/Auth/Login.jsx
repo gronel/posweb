@@ -1,6 +1,6 @@
 import { useForm, Link, router } from '@inertiajs/react';
 
-export default function Login({ canResetPassword }) {
+export default function Login({ canResetPassword, status }) {
     const form = useForm({ email: '', password: '', remember: false });
 
     const submit = (e) => {
@@ -47,6 +47,11 @@ export default function Login({ canResetPassword }) {
                     </div>
 
                     <form onSubmit={submit} className="space-y-4">
+                        {status && (
+                            <div className="rounded-md bg-emerald-50 border border-emerald-200 p-3 text-sm text-emerald-700">
+                                {status}
+                            </div>
+                        )}
                         <div>
                             <label htmlFor="email" className="block text-sm font-semibold mb-1">Email Address</label>
                             <input
