@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DispenseController;
+use App\Http\Controllers\DisposeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
@@ -61,6 +63,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/items/{item}/edit', [ItemController::class, 'edit'])->name('items.edit');
     Route::put('/items/{item}', [ItemController::class, 'update'])->name('items.update');
     Route::delete('/items/{item}', [ItemController::class, 'destroy'])->name('items.destroy');
+
+    Route::get('/dispense', [DispenseController::class, 'index'])->name('dispense');
+    Route::get('/dispose', [DisposeController::class, 'index'])->name('dispose');
 
     //company
     Route::prefix('company')->group(function () {
