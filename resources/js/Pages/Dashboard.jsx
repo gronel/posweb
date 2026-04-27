@@ -4,15 +4,14 @@ export default function Dashboard() {
     const { auth } = usePage().props;
 
     const orders = [
-        { id: '#10234', customer: 'John Smith', amount: '$125.50', status: 'Completed', statusColor: 'bg-green-100 text-green-700', time: '2 mins ago' },
-        { id: '#10233', customer: 'Sarah Johnson', amount: '$89.99', status: 'Processing', statusColor: 'bg-yellow-100 text-yellow-700', time: '15 mins ago' },
-        { id: '#10232', customer: 'Mike Davis', amount: '$234.00', status: 'Cancelled', statusColor: 'bg-red-100 text-red-700', time: '2 hours ago' },
+        { id: '#10234', amount: '$125.50', status: 'Completed', statusColor: 'bg-green-100 text-green-700', time: '2 mins ago' },
+        { id: '#10233', amount: '$89.99', status: 'Processing', statusColor: 'bg-yellow-100 text-yellow-700', time: '15 mins ago' },
+        { id: '#10232', amount: '$234.00', status: 'Cancelled', statusColor: 'bg-red-100 text-red-700', time: '2 hours ago' },
     ];
 
     const quickActions = [
         { label: '+ New Sale', primary: true },
         { label: '📦 Add Product', primary: false },
-        { label: '👥 Add Customer', primary: false },
         { label: '📊 View Reports', primary: false },
     ];
 
@@ -56,20 +55,6 @@ export default function Dashboard() {
                 <div className="bg-white rounded-2xl shadow-sm p-5">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-gray-500 text-sm mb-1">Customers</p>
-                            <h3 className="text-2xl font-bold mb-1">89</h3>
-                            <small className="text-blue-500">→ 0%</small>
-                        </div>
-                        <div className="bg-yellow-100 text-yellow-600 p-3 rounded-xl">
-                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white rounded-2xl shadow-sm p-5">
-                    <div className="flex justify-between items-start">
-                        <div>
                             <p className="text-gray-500 text-sm mb-1">Low Stock Items</p>
                             <h3 className="text-2xl font-bold mb-1">12</h3>
                             <small className="text-red-500">⚠ Action needed</small>
@@ -93,7 +78,7 @@ export default function Dashboard() {
                         <table className="w-full text-sm">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    {['Order ID','Customer','Amount','Status','Time'].map(h => (
+                                    {['Order ID','Amount','Status','Time'].map(h => (
                                         <th key={h} className="text-left px-6 py-3 text-gray-500 font-medium">{h}</th>
                                     ))}
                                 </tr>
@@ -102,7 +87,6 @@ export default function Dashboard() {
                                 {orders.map(o => (
                                     <tr key={o.id} className="hover:bg-gray-50">
                                         <td className="px-6 py-4 font-semibold">{o.id}</td>
-                                        <td className="px-6 py-4 text-gray-600">{o.customer}</td>
                                         <td className="px-6 py-4">{o.amount}</td>
                                         <td className="px-6 py-4">
                                             <span className={`px-2 py-1 rounded-full text-xs font-semibold ${o.statusColor}`}>{o.status}</span>

@@ -40,7 +40,7 @@ export default function ItemsIndex({ items }) {
                     <table className="w-full text-sm">
                         <thead className="bg-gray-50">
                             <tr>
-                                {['ID', 'Code', 'Name', 'Location', 'Category', 'Stock', 'Cost', 'Price', 'Active', 'Actions'].map((h) => (
+                                {['ID', 'Code', 'Name', 'Location', 'Category', 'Actions'].map((h) => (
                                     <th key={h} className={`px-6 py-3 text-left text-gray-500 font-medium ${h === 'Actions' ? 'text-right' : ''}`}>
                                         {h}
                                     </th>
@@ -55,10 +55,6 @@ export default function ItemsIndex({ items }) {
                                     <td className="px-6 py-4 text-gray-700">{item.itemname}</td>
                                     <td className="px-6 py-4 text-gray-500">{item.location?.location}</td>
                                     <td className="px-6 py-4 text-gray-500">{item.category?.itemcategory}</td>
-                                    <td className="px-6 py-4 text-gray-500">{item.stocklevelqty ?? ''}</td>
-                                    <td className="px-6 py-4 text-gray-500">{formatMoney(item.costprice)}</td>
-                                    <td className="px-6 py-4 text-gray-500">{formatMoney(item.sellingprice)}</td>
-                                    <td className="px-6 py-4 text-gray-500">{item.isactive ? 'Yes' : 'No'}</td>
                                     <td className="px-6 py-4 text-right">
                                         <div className="inline-flex gap-2">
                                             <Link href={`/items/${item.id}/edit`} className="flex items-center gap-1 border border-blue-300 text-blue-600 px-3 py-1.5 rounded-lg text-xs hover:bg-blue-50 transition-colors">
